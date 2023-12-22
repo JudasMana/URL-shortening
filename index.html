@@ -4,6 +4,146 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>URL Shortener Landing Page</title>
+    <link rel="stylesheet" href="style.scss" />
   </head>
-  <body></body>
+  <body>
+    <header>
+      <img src="images/logo.svg" alt="Logo" class="logo" />
+      <div class="menu">
+        <div class="menu__bar"></div>
+        <div class="menu__bar"></div>
+        <div class="menu__bar"></div>
+      </div>
+    </header>
+    <section class="work">
+      <img
+        src="images/illustration-working.svg"
+        alt=""
+        class="work__illustration"
+      />
+      <div class="work__info">
+        <p class="work__title">More than just shorter links</p>
+        <p class="work__text">
+          Build your brand's recognition and get detailed insights on how your
+          links are performing
+        </p>
+        <button class="work__btn">Get Started</button>
+      </div>
+    </section>
+    <section class="statistics">
+      <form action="" class="shorten">
+        <input
+          placeholder="Shorten a link here..."
+          type="text"
+          class="shorten__link"
+        />
+        <button class="shorten__btn">Shorten It!</button>
+      </form>
+      <div class="statistics__header">
+        <p class="statistics__title">Advanced Statistics</p>
+        <p class="statistics__text">
+          Track how your links are performing across the web with our advanced
+          statistics dashboard.
+        </p>
+      </div>
+      <div class="statistics__items">
+        <div class="stat">
+          <div class="stat__icon__container">
+            <img
+              src="images/icon-brand-recognition.svg"
+              alt="Brand Recognition"
+              class="stat__icon"
+            />
+          </div>
+
+          <p class="stat__title">Brand Recognition</p>
+          <p class="stat__text">
+            Boost your brand recognition with each click. Generic links don't
+            mean a thing. Branded links help instil confidence in your content.
+          </p>
+        </div>
+        <div class="stat">
+          <div class="stat__icon__container">
+            <img
+              src="images/icon-detailed-records.svg"
+              alt="Detailed Records"
+              class="stat__icon"
+            />
+          </div>
+
+          <p class="stat__title">Detailed Records</p>
+          <p class="stat__text">
+            Gain insights into who is clicking your links. Knowing when and
+            where people engage with your content helps infomr better decisions.
+          </p>
+        </div>
+        <div class="stat">
+          <div class="stat__icon__container">
+            <img
+              src="images/icon-fully-customizable.svg"
+              alt="Fully Customizable"
+              class="stat__icon"
+            />
+          </div>
+
+          <p class="stat__title">Fully Customizable</p>
+          <p class="stat__text">
+            Improve brand awareness and content discoverability through
+            customizable links, supercharging audience engagement.
+          </p>
+        </div>
+      </div>
+      <div class="stat__line"></div>
+    </section>
+    <section class="boost">
+      <p class="boost__title">Boost your links today</p>
+      <button class="boost__btn">Get Started</button>
+    </section>
+    <footer>
+      <img src="images/logo.svg" alt="Logo" class="footer__logo" />
+      <div class="footer__column">
+        <p class="footer__category">Features</p>
+        <ul class="footer__links">
+          <li class="footer__link">Link Shortening</li>
+          <li class="footer__link">Branded Links</li>
+          <li class="footer__link">Analytics</li>
+        </ul>
+      </div>
+      <div class="footer__column">
+        <p class="footer__category">Resources</p>
+        <ul class="footer__links">
+          <li class="footer__link">Blog</li>
+          <li class="footer__link">Developers</li>
+          <li class="footer__link">Support</li>
+        </ul>
+      </div>
+      <div class="footer__column">
+        <p class="footer__category">Company</p>
+        <ul class="footer__links">
+          <li class="footer__link">About</li>
+          <li class="footer__link">Our Team</li>
+          <li class="footer__link">Careers</li>
+          <li class="footer__link">Contact</li>
+        </ul>
+      </div>
+      <div class="footer__socials">
+        <img
+          src="images/icon-facebook.svg"
+          alt="Facebook"
+          class="footer__icon"
+        />
+        <img src="images/icon-twitter.svg" alt="Twitter" class="footer__icon" />
+        <img
+          src="images/icon-pinterest.svg"
+          alt="Pinterest"
+          class="footer__icon"
+        />
+        <img
+          src="images/icon-instagram.svg"
+          alt="Instagram"
+          class="footer__icon"
+        />
+      </div>
+    </footer>
+  </body>
 </html>
