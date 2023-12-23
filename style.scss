@@ -14,9 +14,20 @@ $very_dark_blue: hsl(255, 11%, 22%);
 $very_dark_violet: hsl(260, 8%, 14%);
 
 $mobile-width: 90%;
+$desktop-width: min(80%, 1100px);
+
+@mixin lg {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
 
 :root {
   font-size: 4.8vw;
+
+  @include lg {
+    font-size: min(1.5vw, 21px);
+  }
 }
 
 * {
@@ -36,6 +47,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 header {
@@ -46,8 +58,81 @@ header {
 
   padding: 2rem 0 1rem;
 
+  @include lg {
+    width: $desktop-width;
+  }
+
   .logo {
     height: 1.9rem;
+
+    @include lg {
+      height: 1.6rem;
+      align-self: last baseline;
+    }
+  }
+
+  .header__links {
+    display: none;
+
+    @include lg {
+      display: unset;
+      list-style: none;
+      flex: 1;
+
+      padding-left: 2rem;
+
+      .link {
+        display: inline;
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: $grayish_violet;
+
+        &:hover {
+          cursor: pointer;
+          color: $cyan;
+        }
+      }
+
+      .link + .link {
+        padding-left: 1rem;
+      }
+    }
+  }
+
+  .header__authentications {
+    display: none;
+
+    @include lg {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+
+      .login {
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: $grayish_violet;
+
+        &:hover {
+          cursor: pointer;
+          color: $cyan;
+        }
+      }
+
+      .sign__up {
+        width: 5rem;
+        height: 1.8rem;
+        color: white;
+        border-radius: 4rem;
+        background-color: $cyan;
+        border: none;
+        font-size: 0.7rem;
+
+        &:hover {
+          cursor: pointer;
+          opacity: 0.5;
+        }
+      }
+    }
   }
 
   .menu {
@@ -56,6 +141,10 @@ header {
     justify-content: space-evenly;
     width: 1.5rem;
     height: 1.9rem;
+
+    @include lg {
+      display: none;
+    }
 
     .menu__bar {
       background-color: $grayish_violet;
@@ -72,9 +161,28 @@ header {
   flex-direction: column;
   align-items: center;
 
+  @include lg {
+    flex-direction: row-reverse;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+
+    padding: 5rem 0;
+    margin-bottom: 5rem;
+  }
+
   .work__illustration {
     align-self: flex-start;
     width: 28rem;
+
+    @include lg {
+      position: absolute;
+      left: min(60vw, 1000px);
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      width: 32rem;
+    }
   }
 
   .work__info {
@@ -85,6 +193,15 @@ header {
     margin-top: 3rem;
     margin-bottom: 9rem;
 
+    @include lg {
+      width: $desktop-width;
+      align-items: start;
+      justify-content: center;
+
+      margin: 0;
+      padding-right: 24rem;
+    }
+
     .work__title {
       color: $very_dark_violet;
       text-align: center;
@@ -93,6 +210,12 @@ header {
       font-weight: 700;
 
       margin-bottom: 1rem;
+
+      @include lg {
+        text-align: start;
+        font-size: 3.7rem;
+        line-height: 4rem;
+      }
     }
 
     .work__text {
@@ -100,6 +223,11 @@ header {
       color: $grayish_violet;
 
       margin-bottom: 1.5rem;
+
+      @include lg {
+        text-align: start;
+        font-size: 1.1rem;
+      }
     }
 
     .work__btn {
@@ -111,19 +239,32 @@ header {
       font-weight: 700;
       border: none;
       font-size: 1rem;
+
+      @include lg {
+        font-weight: 500;
+        height: 2.5rem;
+        width: 9rem;
+        font-size: 0.9rem;
+      }
+
+      &:hover {
+        cursor: pointer;
+        opacity: 0.5;
+      }
     }
   }
 }
 
 .statistics {
+  width: 100%;
   position: relative;
   background-color: $gray;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  padding-top: 8rem;
-  padding-bottom: 4rem;
+  padding-top: 5.5rem;
+  padding-bottom: 6rem;
 
   .shorten {
     position: absolute;
@@ -146,6 +287,14 @@ header {
 
     padding: 1.2rem;
 
+    @include lg {
+      flex-direction: row;
+      padding: 2.5rem 3rem;
+      width: $desktop-width;
+      background-image: url(images/bg-shorten-desktop.svg);
+      background-size: 100%;
+    }
+
     .shorten__link {
       width: 100%;
       border: none;
@@ -156,9 +305,39 @@ header {
       font-size: 0.9rem;
       color: $dark_violet;
 
+      @include lg {
+        height: 2.8rem;
+        flex: 1;
+        font-size: 1rem;
+
+        padding-left: 1.5rem;
+      }
+
       &::placeholder {
         color: $grayish_violet;
       }
+    }
+
+    .wrong__link {
+      border: 2px rgba(255, 0, 0, 0.582) solid;
+      padding-left: 0.8rem;
+
+      &::placeholder {
+        color: rgba(255, 0, 0, 0.267);
+      }
+    }
+
+    .shorten__message {
+      align-self: flex-start;
+      color: rgba(255, 0, 0, 0.753);
+      font-weight: 500;
+      font-size: 0.7rem;
+      font-style: italic;
+      margin: -0.9rem 0 0;
+    }
+
+    .hidden {
+      display: none;
     }
 
     .shorten__btn {
@@ -170,6 +349,106 @@ header {
       color: white;
       font-size: 1rem;
       font-weight: 700;
+
+      @include lg {
+        width: 10rem;
+        height: 2.8rem;
+        font-weight: 500;
+      }
+
+      &:hover {
+        cursor: pointer;
+        background-color: hsl(180, 56%, 74%);
+      }
+    }
+  }
+
+  .result {
+    width: $mobile-width;
+    background-color: white;
+    border-radius: 0.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include lg {
+      width: $desktop-width;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0.8rem 1.2rem;
+    }
+
+    .original__link {
+      width: 100%;
+      padding: 0.7rem 0.7rem 0.5rem;
+      border-bottom: 1px solid $gray;
+      font-size: 0.9rem;
+      color: $dark_violet;
+
+      @include lg {
+        border: none;
+        height: 100%;
+        padding: 0;
+        flex: 1;
+        font-size: 1rem;
+      }
+    }
+
+    .results {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      padding: 0.5rem 0.7rem 0.8rem;
+
+      @include lg {
+        flex-direction: row;
+        align-items: center;
+        padding: 0;
+        gap: 1rem;
+        width: min-content;
+      }
+
+      .short__link {
+        width: 100%;
+        font-size: 0.9rem;
+        color: $cyan;
+
+        @include lg {
+          width: min-content;
+          font-size: 1rem;
+        }
+      }
+
+      .copy__link {
+        width: 100%;
+        border: none;
+        color: white;
+        font-weight: 700;
+        font-size: 0.9rem;
+        background-color: $cyan;
+        border-radius: 0.3rem;
+        height: 2.2rem;
+
+        @include lg {
+          width: 5rem;
+          font-size: 0.8rem;
+          font-weight: 500;
+          height: 2rem;
+        }
+      }
+
+      .copy__link--active {
+        &:hover {
+          cursor: pointer;
+          opacity: 0.5;
+        }
+      }
+
+      .copy__link--copied {
+        background-color: $dark_violet;
+      }
     }
   }
 
@@ -178,13 +457,23 @@ header {
     flex-direction: column;
     width: $mobile-width;
 
+    margin-top: 4.5rem;
     margin-bottom: 5rem;
+
+    @include lg {
+      width: 25rem;
+      margin-top: 6rem;
+    }
 
     .statistics__title {
       font-size: 1.5rem;
       text-align: center;
       font-weight: 700;
       color: $very_dark_violet;
+
+      @include lg {
+        font-size: 1.7rem;
+      }
     }
 
     .statistics__text {
@@ -200,6 +489,14 @@ header {
     width: $mobile-width;
     gap: 5rem;
 
+    @include lg {
+      flex-direction: row;
+      height: 17rem;
+      align-items: center;
+      width: $desktop-width;
+      gap: 1.5rem;
+    }
+
     .stat {
       width: 100%;
       background-color: white;
@@ -211,6 +508,13 @@ header {
       gap: 1rem;
 
       padding: 3.5rem 2rem 2rem;
+
+      @include lg {
+        height: min-content;
+        align-items: start;
+
+        padding: 3.5rem 1.5rem 2rem;
+      }
 
       .stat__icon__container {
         position: absolute;
@@ -227,8 +531,19 @@ header {
         margin: 0 auto;
         width: 5rem;
 
+        @include lg {
+          width: 4rem;
+          left: 1.5rem;
+          right: unset;
+          margin: 0;
+        }
+
         .stat__icon {
           width: 2.3rem;
+
+          @include lg {
+            width: 1.9rem;
+          }
         }
       }
 
@@ -237,12 +552,35 @@ header {
         font-weight: 700;
         color: $very_dark_violet;
         font-size: 1.3rem;
+
+        @include lg {
+          text-align: start;
+          font-size: 1rem;
+        }
       }
 
       .stat__text {
         text-align: center;
         font-size: 0.9rem;
         color: $grayish_violet;
+
+        @include lg {
+          text-align: start;
+          font-size: 0.75rem;
+          line-height: 1.2rem;
+        }
+      }
+    }
+
+    .stat:nth-child(1) {
+      @include lg {
+        align-self: self-start;
+      }
+    }
+
+    .stat:nth-child(3) {
+      @include lg {
+        align-self: self-end;
       }
     }
   }
@@ -254,9 +592,15 @@ header {
     right: 0;
     margin: 0 auto;
     width: 0.5rem;
-    top: 20rem;
+    top: 30em;
     height: 40rem;
     z-index: -1;
+
+    @include lg {
+      width: 20rem;
+      top: 31em;
+      height: 0.3rem;
+    }
   }
 }
 
@@ -267,16 +611,27 @@ header {
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 5rem 1rem;
+  padding: 5rem 0;
   background-color: $dark_violet;
   background-image: url(images/bg-boost-mobile.svg);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 
+  @include lg {
+    gap: 1.2rem;
+    background-image: url(images/bg-boost-desktop.svg);
+
+    padding: 2.8rem 0;
+  }
+
   .boost__title {
     color: white;
     font-weight: 700;
     font-size: 1.5rem;
+
+    @include lg {
+      font-size: 1.7rem;
+    }
   }
 
   .boost__btn {
@@ -288,6 +643,16 @@ header {
     font-size: 1rem;
     color: white;
     font-weight: 700;
+
+    @include lg {
+      height: 2.7rem;
+      width: 10rem;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: hsl(180, 56%, 74%);
+    }
   }
 }
 
@@ -301,9 +666,22 @@ footer {
 
   padding: 2.5rem;
 
+  @include lg {
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-between;
+
+    padding: 2rem max(10%, calc(50vw - 550px));
+  }
+
   .footer__logo {
     filter: brightness(5);
     width: 7rem;
+
+    @include lg {
+      width: 5rem;
+      margin-right: 9rem;
+    }
   }
 
   .footer__column {
@@ -312,9 +690,18 @@ footer {
     align-items: center;
     gap: 1rem;
 
+    @include lg {
+      align-items: start;
+      gap: 0.7rem;
+    }
+
     .footer__category {
       color: white;
       font-size: 0.9rem;
+
+      @include lg {
+        font-size: 0.7rem;
+      }
     }
 
     .footer__links {
@@ -322,10 +709,33 @@ footer {
       text-align: center;
       line-height: 1.8rem;
 
+      @include lg {
+        text-align: start;
+        line-height: 1.7rem;
+      }
+
       .footer__link {
         font-size: 0.8rem;
         color: white;
         opacity: 0.5;
+
+        &:hover {
+          cursor: pointer;
+          color: $cyan;
+          font-weight: 700;
+          opacity: 1;
+        }
+
+        @include lg {
+          font-size: 0.7rem;
+
+          &:hover {
+            cursor: pointer;
+            color: $cyan;
+            font-weight: 500;
+            opacity: 1;
+          }
+        }
       }
     }
   }
@@ -337,8 +747,91 @@ footer {
     justify-content: center;
     gap: 1.5rem;
 
+    @include lg {
+      height: 1.1rem;
+      gap: 1.2rem;
+    }
+
     .footer__icon {
       height: 100%;
+
+      &:hover {
+        cursor: pointer;
+        filter: invert(61%) sepia(24%) saturate(1262%) hue-rotate(131deg)
+          brightness(189%) contrast(84%);
+        transform: scale(1.1);
+      }
     }
   }
+}
+
+menu {
+  position: absolute;
+  width: $mobile-width;
+  background-color: $dark_violet;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 0.4rem;
+
+  top: 5rem;
+  padding: 2rem 1.5rem;
+
+  .menu__links {
+    width: 100%;
+    list-style: none;
+    color: white;
+    line-height: 3rem;
+    font-weight: 700;
+    border-bottom: 1px solid $gray;
+
+    padding-bottom: 1rem;
+
+    .link {
+      text-align: center;
+
+      &:hover {
+        cursor: pointer;
+        color: $cyan;
+      }
+    }
+  }
+
+  .authentications {
+    width: 100%;
+    padding: 1.5rem 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+
+    .login {
+      color: white;
+      font-weight: 700;
+
+      &:hover {
+        cursor: pointer;
+        color: $cyan;
+      }
+    }
+
+    .sign__up {
+      width: 100%;
+      color: white;
+      font-weight: 700;
+      border-radius: 10rem;
+      height: 2.5rem;
+      border: none;
+      background-color: $cyan;
+
+      &:hover {
+        cursor: pointer;
+        background-color: hsl(180, 56%, 74%);
+      }
+    }
+  }
+}
+
+.hidden {
+  display: none;
 }

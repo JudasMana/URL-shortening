@@ -9,6 +9,15 @@
   <body>
     <header>
       <img src="images/logo.svg" alt="Logo" class="logo" />
+      <ul class="header__links">
+        <li class="link">Features</li>
+        <li class="link">Pricing</li>
+        <li class="link">Resources</li>
+      </ul>
+      <div class="header__authentications">
+        <p class="login">Login</p>
+        <button class="sign__up">Sign Up</button>
+      </div>
       <div class="menu">
         <div class="menu__bar"></div>
         <div class="menu__bar"></div>
@@ -37,8 +46,16 @@
           type="text"
           class="shorten__link"
         />
+        <p class="shorten__message hidden">Insert valid link</p>
         <button class="shorten__btn">Shorten It!</button>
       </form>
+      <div class="result">
+        <p class="original__link">https://www.youtube.com</p>
+        <div class="results">
+          <p class="short__link">https://rel.link/fh5Hc2</p>
+          <button class="copy__link copy__link--active">Copy</button>
+        </div>
+      </div>
       <div class="statistics__header">
         <p class="statistics__title">Advanced Statistics</p>
         <p class="statistics__text">
@@ -145,5 +162,16 @@
         />
       </div>
     </footer>
+    <menu class="hidden">
+      <ul class="menu__links">
+        <li class="link">Features</li>
+        <li class="link">Pricing</li>
+        <li class="link">Resources</li>
+      </ul>
+      <div class="authentications">
+        <p class="login">Login</p>
+        <button class="sign__up">Sign Up</button>
+      </div>
+    </menu>
   </body>
 </html>
