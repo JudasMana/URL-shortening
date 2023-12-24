@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>URL Shortener Landing Page</title>
     <link rel="stylesheet" href="style.scss" />
+    <script defer type="module" src="js/controller.js"></script>
   </head>
   <body>
     <header>
@@ -49,13 +50,17 @@
         <p class="shorten__message hidden">Insert valid link</p>
         <button class="shorten__btn">Shorten It!</button>
       </form>
-      <div class="result">
-        <p class="original__link">https://www.youtube.com</p>
-        <div class="results">
-          <p class="short__link">https://rel.link/fh5Hc2</p>
-          <button class="copy__link copy__link--active">Copy</button>
+      <div class="short__url">
+        <!--
+        <div class="result">
+          <p class="original__link">https://www.youtube.com</p>
+          <div class="results">
+            <p class="short__link">https://rel.link/fh5Hc2</p>
+            <button class="copy__link copy__link--active">Copy</button>
+          </div>
         </div>
-      </div>
+      --></div>
+
       <div class="statistics__header">
         <p class="statistics__title">Advanced Statistics</p>
         <p class="statistics__text">
